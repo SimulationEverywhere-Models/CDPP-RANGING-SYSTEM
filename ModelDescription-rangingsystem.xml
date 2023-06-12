@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Models> 
+	<Model name="Rangingsystem" type="coupled" description="a coupled system for a ranging system.">
+		<Inputs>
+			<Port name="In" type="int" description="representing that an echo is arriving"/>			
+		</Inputs>
+		<Outputs>
+			<Port name="Out1" type="int" description="representing that the system is transmitting the ultrasound out."/>
+			<Port name="Out2" type="int" description="representing that the system is displaying the distance calculated."/>
+		</Outputs>
+		<Files>	
+			<File name="SystemTest.ma" type="MA" location="/"/>
+			<File name="SystemTest.ev" type="EV" location="/"/>
+			<File name="SystemTestLOG.log" type="LOG" location="/"/>
+		</Files>
+	</Model>
+	<Model name="ttp" type="coupled" description="The sub-system(Timer, Transmitter, Processor)can match any type of receiver, so it is an independent part.">
+		<Inputs>
+			<Port name="In" type="int" description="receives a notification of echo"/>			
+		</Inputs>
+		<Outputs>
+			<Port name="Out1" type="int" description="Notifying the receiver to stop receiving"/>
+			<Port name="Out2" type="int" description="transmitting the ultrasound out"/>
+			<Port name="Out3" type="int" description="displaying the distance calculated"/>			
+		</Outputs>
+	</Model>
+	<Model name="MyTimer" type="atomic" description="To count the time and control the transmitter to transmit and processor to display the distance.">
+		<Inputs>
+			<Port name="In" type="int" description="Receiver's notification"/>			
+		</Inputs>
+		<Outputs>
+			<Port name="Out1" type="int" description="Notifying the receiver to stop receiving"/>
+			<Port name="Out2" type="int" description="Controlling the transmitter to transmitt"/>
+			<Port name="Out3" type="int" description="Controlling the processor to display"/>	
+		</Outputs>
+		<Files>
+			<File name="MyTimer.h" type="H" location="/"/>
+			<File name="MyTimer.cpp" type="CPP" location="/"/>
+			<File name="TimerTest.ma" type="MA" location="/"/>		
+			<File name="TimerTest.ev" type="EV" location="/"/>			
+			<File name="TimerTestLOG.log" type="LOG" location="/"/>
+			<File name="TimerTestOUT.out" type="OUT" location="/"/>
+		</Files>
+	</Model>
+	<Model name="MyReceiver" type="atomic" description="to receive the echo.">
+		<Inputs>
+			<Port name="In1" type="int" description="echo arrives"/>			
+			<Port name="In2" type="int" description="stopping or beginning to receive, which is controlled by Timer "/>
+		</Inputs>
+		<Outputs>
+			<Port name="Out" type="int" description="notifying the Timer that the echo has arrived"/>
+		</Outputs>
+		<Files>
+			<File name="MyReceiver.h" type="H" location="/"/>
+			<File name="MyReceiver.cpp" type="CPP" location="/"/>
+			<File name="ReceiverTest.ma" type="MA" location="/"/>
+			<File name="ReceiverTest.ev" type="EV" location="/"/>
+			<File name="ReceiverTestLOG.log" type="LOG" location="/"/>
+			<File name="ReceiverTestOUT.out" type="OUT" location="/"/>
+		</Files>
+	</Model>
+	<Model name="MyTransmitter" type="atomic" description="to transmit the ultrasound.">
+		<Inputs>
+			<Port name="In" type="int" description="notified to transmit the ultrasound"/>			
+		</Inputs>
+		<Outputs>
+			<Port name="Out" type="int" description="to transmit the ultrasound"/>
+		</Outputs>
+		<Files>
+			<File name="MyTransmitter.h" type="H" location="/"/>
+			<File name="MyTransmitter.h" type="CPP" location="/"/>
+			<File name="MyTransmitter.ma" type="MA" location="/"/>
+			<File name="MyTransmitter.ev" type="EV" location="/"/>
+			<File name="MyTransmitterLOG.log" type="LOG" location="/"/>
+			<File name="MyTransmitterOUT.out" type="Out" location="/"/>
+		</Files>
+	</Model>
+</Models>

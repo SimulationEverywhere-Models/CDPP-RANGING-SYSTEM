@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> MyTimer@MyTimer&#xd;</components>
+    <in> In&#xd;</in>
+    <out> Out1 Out2 Out3&#xd;</out>
+    <Link> In In@MyTimer&#xd;</Link>
+    <Link> Out1@MyTimer Out1&#xd;</Link>
+    <Link> Out2@MyTimer Out2&#xd;</Link>
+    <Link> Out3@MyTimer Out3&#xd;</Link>
+  </top>
+</CDPlusPlus_Builder_Version_1.0.0>

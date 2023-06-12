@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> MyReceiver@MyReceiver ttp&#xd;</components>
+    <in> In&#xd;</in>
+    <out> Out1 Out2&#xd;</out>
+    <Link> In In1@MyReceiver&#xd;</Link>
+    <Link> Out@MyReceiver In@ttp&#xd;</Link>
+    <Link> Out1@ttp In2@MyReceiver&#xd;</Link>
+    <Link> Out2@ttp Out1&#xd;</Link>
+    <Link> Out3@ttp Out2&#xd;</Link>
+  </top>
+</CDPlusPlus_Builder_Version_1.0.0>
